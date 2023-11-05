@@ -40,6 +40,30 @@
   - Natural events (e.g. rainfall)
   - Contains observable variation in treatment that are random under plausible assumption (quasi)
 
+### Checklist
+
+1. How to define a causal effect based on the potential outcomes framework?
+
+   The difference between outcome if treated and outcome if not treated.
+
+2. How do experiments with random assignment uncover the causal effect?
+
+   Random assignment ensures that characteristics are similar between the control and treatment
+   groups. As a result, any variation in behavior can be attributed to the causal effect.
+
+3. What are the limitations of experiments?
+
+   Hawthorne and John Henry effect, causing the experiment to not be internally valid
+
+4. What is the Stable Unit Treatment Value Assumption and why we need it?
+
+   It is the basic assumption of causal effect stability where it ensures that the potential
+   outcome of a unit does not depend on the treatment received by other units
+
+5. What is the essential feature of a natural experiment?
+
+   Should contain observable variation in treatment that are random under plausible assumption.
+
 ## Questions to clarify
 
 - For SUTVA, in the case of "How does a longer education affect someone's income?", would valid
