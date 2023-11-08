@@ -282,6 +282,11 @@ $$SE(\hat{\beta_k}) = \frac{\sigma_e}{\sqrt{n}} \times \frac{1}{\sigma_{\tilde{X
 
    Are the variables confounders, mediators, or common effects? Does it affect only X or only Y?
 
+## Chapter 5: Instrumental Variables
+
+- Quasi-experiments: making use of "natural" random component of treatment variation
+- Instrument variable: has a causal effect on the treatment, as good as randomly assigned, affects outcomes only through treatment
+
 ## Questions to clarify
 
 - For SUTVA, in the case of "How does a longer education affect someone's income?", would valid
