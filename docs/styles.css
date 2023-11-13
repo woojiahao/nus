@@ -76,3 +76,23 @@ header .subtitle {
     background-color: #3A405A;
     color: white;
 }
+
+@media only screen and (max-width: 1080px) {
+    .container {
+        width: 80%;
+    }
+
+    .modules {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .container {
+        width: 90%;
+    }
+
+    .modules {
+        grid-template-columns: 1fr;
+    }
+}
