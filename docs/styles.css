@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
 
 * {
     margin: 0;
@@ -6,9 +6,9 @@
 }
 
 body {
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Inter', sans-serif;
     font-size: 16px;
-    background-color: #F4F4F6;
+    background-color: #FAFAFF;
 }
 
 .container {
@@ -20,13 +20,13 @@ header {
     text-align: center;
     margin-bottom: 1rem;
     padding: 3rem;
-    background-color: white;
+    background-color: #8AC6D0;
 }
 
 footer {
     text-align: center;
     padding: 3rem;
-    background-color: white;
+    background-color: #8AC6D0;
 }
 
 footer p:not(:last-child) {
@@ -65,7 +65,7 @@ input {
     border: #3A405A 1px solid;
     padding: 20px;
     border-radius: 10px;
-    background-color: #92BCEA;
+    background-color: #8AC6D0;
     color: black;
     row-gap: 0.7rem;
 }
