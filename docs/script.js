@@ -47,6 +47,27 @@ const collection = {
             'midterms_cheatsheet.pdf': 'Midterm Cheatsheet',
         }
     },
+    'cs2103': {
+        'name': 'Software Engineering',
+        'resources': {
+            'pe_notes.pdf': 'PE Notes'
+        }
+    },
+    'cs2105': {
+        'name': 'Introduction to Computer Networks',
+        'resources': {
+            'finals_cheatsheet.pdf': 'Finals Cheatsheet',
+            'tutorials_pyp_notes.pdf': 'Tutorial & PYP Notes'
+        }
+    },
+    'cs2106': {
+        'name': 'Introduction to Operating Systems',
+        'resources': {
+            'midterm_cheatsheet.pdf': 'Midterm Cheatsheet',
+            'finals_notes.pdf': 'Finals Notes',
+            'concurrency_problems.pdf': 'Common Concurrency Problems'
+        }
+    }
 }
 
 const modulesContainer = document.querySelector('div.modules');
