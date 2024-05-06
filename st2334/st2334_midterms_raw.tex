@@ -1,0 +1,626 @@
+\documentclass[twocolumn, 8pt]{extarticle}
+\usepackage{multicol}
+\usepackage{blindtext}
+\usepackage{graphicx} % Required for inserting images
+\usepackage[a4paper, margin=0.2in]{geometry}
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{sectsty}
+\usepackage{charter}
+\usepackage{color}
+
+\setlength{\parindent}{0pt}
+\setlist[itemize]{noitemsep, topsep=0pt}
+% \setlength{\columnseprule}{1pt}
+% \def\columnseprulecolor{\color{blue}}
+
+\title{ST2334 Midterm Cheatsheet}
+\author{Jia Hao Woo}
+\date{February 2024}
+\pagenumbering{gobble} 
+
+\begin{document}
+
+\section*{Definitions}
+
+\textbf{Sample space ($S$):} set of all possible outcomes
+
+\begin{itemize}
+    \item Aka \textit{sure event}
+\end{itemize}
+
+\textbf{Sample point:} outcome in sample space, $p \in S$
+
+\textbf{Event:} subset of sample space, $E \subseteq S$
+
+\begin{itemize}
+    \item No elements: \textit{null event}, $\emptyset$
+\end{itemize}
+
+\section*{Event operations \& relationships}\noindent
+
+* Applicable to $n$ events
+
+\textbf{Union:} $A \cup B = \{x : x \in A \lor x \in B\}$
+
+\textbf{Intersection:} $A \cap B = \{x : x \in A \land x \in B\}$
+
+\textbf{Complement:} $A' = \{x : x \in S \land x \not\in A\}$
+
+\textbf{Mutually exclusive:} $A \cap B = \emptyset$
+
+\textbf{Contained:} $A \subset B$
+
+\textbf{Equivalent:} $A \subset B \land B \subset A \Rightarrow A = B$
+
+\textbf{Others:}
+
+\begin{itemize}
+    \item $A \cap A' = \emptyset$
+    \item $A \cap \emptyset = \emptyset$
+    \item $A \cup A' = S$
+    \item $(A')' = A$
+    \item $A \cup (B \cap C) = (A \cup B) \cap (A \cup C)$
+    \item $A \cap (B \cup C) = (A \cap B) \cup (A \cap C)$
+    \item $A \cup B = A \cup (B \cap A')$
+    \item $A = (A \cap B) \cup (A \cap B')$
+    \item $(A_1 \cup A_2 \cup \ldots \cup A_n)' = A_1' \cap A_2' \cap \ldots \cap A_n'$
+    \item $(A_1 \cap A_2 \cap \ldots \cap A_n)' = A_1' \cup A_2' \cup \ldots \cup A_n'$
+\end{itemize}
+
+\section*{Counting methods}\noindent
+
+\textbf{Multiplication principle:} $r$ different experiments performed sequentially, producing $n_1 \times n_2 \times \ldots \times n_r$ outcomes
+
+\textbf{Addition principle:} $r$ different procedures performed sequentially, producing $n_1 + n_2 + \ldots + n_r$ ways (non-overlapping) to perform an experiment
+
+\textbf{Permutation:} selection and arrangement of $r$ objects out of $n$ where order matters (i.e. $\{a, b\} \neq \{b, a\}$)
+
+$$
+P^n_r = nPr = \frac{n!}{(n-r)!} = n(n-1)(n-2)\ldots(n-(r-1))
+$$
+
+\textbf{Combination:} selection of $r$ objects out of $n$ where order does not matter
+
+$$
+C^n_r = nCr = {n \choose r} = {n \choose n - r} = \frac{n!}{r!(n-r)!}
+$$
+
+\section*{Probability}\noindent
+
+$P(\cdot)$ is a function on the collection fo events of the sample space $S$ satisfying:
+
+\begin{itemize}
+    \item Axiom 1. For any event $A$, $0 \leq P(A) \leq 1$
+    \item Axiom 2. For the sample space, $P(S) = 1$
+    \item Axiom 3. For any two mutually exclusive events $A$ and $B$, $A \cap B = \emptyset$ and $P(A \cup B) = P(A) + P(B)$
+\end{itemize}
+
+\textbf{Properties:}
+
+\begin{itemize}
+    \item $P(\emptyset) = 0$
+    \item If $A_1, A_2, \ldots, A_n$ are mutually exclusive events, then $P(A_1 \cup A_2 \cup \ldots \cup A_n) = P(A_1) + P(A_2) + \ldots + P(A_n)$
+    \item $P(A') = 1 - P(A)$
+    \item $P(A) = P(A \cap B) + P(A \cap B')$
+    \item \textbf{Inclusion-exclusion principle:} $P(A \cup B) = P(A) + P(B) - P(A \cap B)$
+    \item $A \subset B \Rightarrow P(A) \leq P(B)$
+\end{itemize}
+
+\textbf{Finite sample space with equally likely outcomes:} $S = \{a_1, a_2, \ldots, a_k\}$ and all outcomes are equally likely, so any event occurring is where $A \subset S$
+
+$$
+P(A) = \frac{|A|}{|S|}
+$$
+
+\textbf{Probability of repeated event:} if the outcome is always the same, then $P(K) = P(A)^n$
+
+\section*{Conditional probability}\noindent
+
+For any two events $A$ and $B$ with $P(A) > 0$, the conditional probability of $B$ given that $A$ has occurred is
+
+$$
+P(B|A) = \frac{P(A \cap B)}{P(A)}
+$$
+
+Since $A$ has occurred, $A$ becomes the reduced sample space
+
+\textbf{Multiplication rule:} $P(A \cap B) = P(A)P(B|A)$ if $P(A) \neq 0$
+
+\textbf{Inverse probability formula:} $P(A|B) = \frac{P(A)P(B|A)}{P(B)}$
+
+\section*{Independence}\noindent
+
+Events are independent ($A \perp B$) iff $P(A \cap B) = P(A)P(B)$
+
+$$
+P(A) \neq 0 \Rightarrow P(A|B) = P(A)
+$$
+
+$$
+P(B) \neq 0 \Rightarrow P(B|A) = P(B)
+$$
+
+\textbf{Intuition:} $A$ and $B$ if the knowledge of $A$ does not change the probability of $B$
+
+\textbf{Independence vs Mutually Exclusive:}
+
+\begin{itemize}
+    \item $P(A) > 0 \land P(B) > 0, A \perp B \Rightarrow \text{not mutually exclusive}$
+    \item $P(A) > 0 \land P(B) > 0, A, B \text{ not mutually exclusive} \Rightarrow A \not\perp B$
+    \item $S$ and $\emptyset$ are independent of any other event
+    \item $A \perp B \Rightarrow A \perp B', A' \perp B, A' \perp B'$
+\end{itemize}
+
+\section*{Total probability}\noindent
+
+\textbf{Partition:} if $A_1, A_2, \ldots, A_n$ are mutually exclusive events and $\bigcup_{i = 1}^n A_i = S$, then $A_1, A_2, \ldots, A_n$ is a partition of $S$ (i.e. how to split the sample space up into parts)
+
+\textbf{Law of total probability:} given a partition of $S$, for any even $B$,
+
+$$
+P(B) = \sum_{i=1}^n P(B \cap A_i) = \sum_{i=1}^n P(A_i)P(B|A_i)
+$$
+
+Applied to single event $A$ and $B$:
+
+$$
+P(B) = P(A)P(B|A) + P(A')P(B|A')
+$$
+
+\section*{Bayes' theorem}
+
+Give a partition of $S$, then for any event $B$ and $k = 1, 2, \ldots, n$,
+
+$$
+P(A_k|B) = \frac{P(A_k)P(B|A_k)}{\sum_{i=1}^n P(A_i)P(B|A_k)}
+$$
+
+Applied to single event $A$ and $B$:
+
+$$
+P(A|B) = \frac{P(A)P(B|A)}{P(A)P(B|A) + P(A')P(B|A')}
+$$
+
+\section*{Random variables}
+
+A function $X$ which assigns a real number to every $s \in S$ (mapping of values from sample space to some value representing a property of that value in the sample space)
+
+$$
+X : S \mapsto \mathbb{R}
+$$
+
+\textbf{Range space:} set of real numbers produced by random variable $X$
+
+$$
+R_X = \{x | x = X(s), s \in S\}
+$$
+
+\textbf{Notations:}
+
+\begin{itemize}
+    \item $\{X = x\} = \{s \in S : X(s) = x\} \subset S$
+    \item $\{X \in A\} = \{s \in S : X(s) \in A\} \subset S$
+    \item $P(X = x) = P(\{s \in S : X(s) = x\})$
+    \item $P(X \in A) = P(\{s \in S : X(s) \in A\})$
+\end{itemize}
+
+\textbf{Describing random variables:} (1) range of inputs to outputs, (2) constructing a table/formula
+
+\section*{Probability distribution}
+
+\textbf{Probability distribution:} $(x_i, f(x_i))$ where $f(x)$ is the probability function
+\subsection*{Discrete random variables}
+
+Number of values in $R_X$ is finite or countable
+
+\textbf{Probability mass function:} for a discrete random variable $X$, the probability (mass) function is:
+
+$$
+f(x) = \begin{cases}
+P(X = x), x \in R_X\\
+0, x \not\in R_X
+\end{cases}
+$$
+
+\textbf{Properties:} $f(x)$ must satisfy the following 
+
+\begin{itemize}
+    \item $f(x_i) \geq 0 \forall x_i \in R_X$ (all fractional and $\leq 1$)
+    \item $f(x) = 0 \forall x \not\in R_X$
+    \item $\sum_{i=1}^{\infty}f(x_i) = \sum_{x_i \in R_X}f(x_i) = 1$
+\end{itemize}
+
+\textbf{Extension:} for any set $B \subset \mathbb{R}$,
+
+$$
+P(X \in B) = \sum_{x_i \in B \cap R_X} f(x_i)
+$$
+
+\subsection*{Continuous random variables}
+
+$R_X$ is an interval or collection of intervals
+
+\textbf{Probability density function:} quantifies probability that $X$ is in a certain range
+
+\textbf{Properties:} $f(x)$ must satisfy the following
+
+\begin{itemize}
+    \item $f(x) \geq 0 \forall x \in R_X$
+    \item $f(x) = 0 \forall x \not\in R_X$
+    \item $\int_{-\infty}^{\infty}f(x) dx = \int_{R_X} f(x) dx = 1$
+\end{itemize}
+
+\textbf{Extension 1:} given that $a \leq b$, 
+
+\begin{equation*}
+\begin{split}
+P(a \leq X \leq b) &\\
+= P(a \leq X < b) \\
+= P(a < X \leq b) \\
+= P(a < X < b) \\
+= \int_{a}^{b} f(x) dx
+\end{split}
+\end{equation*}
+
+\textbf{Extension 2:}
+
+$$
+P(X = x) = 0
+$$
+
+\section*{Cumulative distribution function}
+
+Probability distribution over a range (both discrete and continuous)
+
+$$
+F(x) = P(X \leq x)
+$$
+
+\textbf{Properties:}
+
+\begin{itemize}
+    \item $F(x)$ is always non-decreasing
+    \item Ranges of $F(x)$ and $f(x)$ satisfy
+        \begin{itemize}
+            \item $0 \leq F(x) \leq 1$
+            \item for discrete distributions, $0 \leq f(x) \leq 1$
+            \item for continuous distributions, $f(x) \geq 0$ but \textit{not necessary} that $f(x) \leq 1$
+        \end{itemize}
+\end{itemize}
+
+\subsection*{Discrete random variables}
+
+\begin{equation*}
+    \begin{split}
+        F(x) & = \sum_{t \in R_X; t \leq x} f(t) \\
+        & = \sum_{t \in R_X; t \leq x} P(X = t)
+    \end{split}
+\end{equation*}
+
+CDF is a step function and can be represented as such (note that probability is cumulated to reach 1):
+
+$$
+F(x) = \begin{cases}
+    0, x < 0\\
+    1/4, 0 \leq x < 1\\
+    3/4, 1 \leq x < 2\\
+    1, 2 \leq x
+\end{cases}
+$$
+
+For any two numbers $a < b$,
+
+$$
+P(a \leq X \leq b) = P(X \leq b) - P(X < a) = F(b) - F(a-)
+$$
+
+$F(a-)$ is the largest value in $R_X$ that is smaller than $a$
+
+\subsection*{Continuous random variable}
+
+$$
+F(x) = \int_{-\infty}^x f(t) dt
+$$
+
+$$
+f(x) = \frac{d F(x)}{dx}
+$$
+
+For any two numbers $a < b$,
+
+$$
+P(a \leq X \leq b) = P(a < X < b) = F(b) - F(a)
+$$
+
+Note that if there are multiple functions per interval and $a, b$ run across multiple intervals, separately integrate each interval with the functions for each interval
+
+\section*{Expectation}
+
+Expectation, also known as mean, of random variable is the average value of $X$ after repeating the experiment many times. This value may not be a possible value of $X$.
+
+\textbf{Discrete random variable:}
+
+$$
+\mu_X = E(X) = \sum_{x_i \in R_X} x_i f(x_i)
+$$
+
+\textbf{Continuous random variable:}
+
+$$
+E(X) = \int_{-\infty}^{\infty} x f(x) dx = \int_{x \in R_X} x f(x) dx
+$$
+
+\textbf{Properties:}
+
+\begin{itemize}
+    \item $E(aX + b) = aE(X) + b$
+    \item $E(X + Y) = E(X) + E(Y)$
+    \item let $g(\cdot)$ be an arbitrary function, 
+    
+        $$E(g(X)) = \sum_{x\in R_X} g(x)f(x)$$ or $$E(g(X)) = \int_{R_X} g(x)f(x) dx$$
+\end{itemize}
+
+\section*{Variance}
+
+Calculates the deviation of $X$ from its mean (expectation)
+
+$$
+\sigma_X^2 = V(X) = E(X - \mu_X)^2 = E(X^2) - E(X)^2
+$$
+
+Applicable regardless of discrete/continuous random variable.
+
+$$
+V(X) = \sum_{x \in R_X} (x - \mu_X)^2 f(x)
+$$
+
+or 
+
+$$
+V(X) = \int_{-\infty}^{\infty} (x - \mu_X)^2 f(x) dx
+$$
+
+\textbf{Properties:}
+
+\begin{itemize}
+    \item $V(X) \geq 0$ if $P(X = E(X)) = 1$ where $X$ is a constant
+    \item $V(aX + b) = a^2 V(X)$
+    \item standard deviation of $X$: $\sigma_X = \sqrt{V(X)}$
+\end{itemize}
+
+\section*{Joint distributions}
+
+$(X, Y)$ is a two-dimensional random vector/random variable
+
+\textbf{Range space:} $R_{X, Y} = \{(x, y) | x = X(s), y = Y(s), s \in S\}$ (effectively looking at all pairs of $(x, y)$; generalizable to $n$ dimensions) 
+
+\textbf{Discrete two-dimensional random variable:} number of possible values of $(X(s), Y(s))$ is finite or countable (both $X$ and $Y$ are discrete)
+
+\textbf{Continuous two-dimensional random variable:} number of possible values of $(X(s), Y(s))$ can assume any value in some region of the Euclidean space $\mathbb{R}^2$ (both $X$ and $Y$ are continuous)
+
+\section*{Joint probability function}
+
+\subsection*{Discrete joint probability function}
+
+$$
+f_{X, Y}(x, y) = P(X = x, Y = y)
+$$
+
+\textbf{Properties:}
+
+\begin{itemize}
+    \item $f_{X, Y}(x, y) \geq 0 \forall (x, y) \in R_{X, Y}$
+    \item $f_{X, Y}(x, y) = 0 \forall (x, y) \not\in R_{X, Y}$
+    \item $\displaystyle\sum^{\infty}_{i=1} \sum_{j=1}^{\infty} f_{X, Y}(x_i, y_j) = \sum^{\infty}_{i=1} \sum_{j=1}^{\infty} P(X = x_i, Y = y_j) = 1$
+    \item above is the same as $\sum\sum_{(x, y) \in R_{X, Y}} f(x, y) = 1$
+\end{itemize}
+
+Let $A \subset R_{X, Y}$,
+
+$$
+P((X, Y) \in A) = \sum\sum_{(x, y) \in A}f_{X, Y}(x, y)
+$$
+
+\subsection*{Continuous joint probability function}
+
+\begin{equation*}
+    \begin{split}
+        & P((X, Y) \in D) \\
+        & = P(a \leq X \leq b, c \leq Y \leq d) \\
+        & = \int_a^b\int_c^d f_{X, Y}(x, y) dy dx
+    \end{split}
+\end{equation*}
+
+*The order of integration does not matter
+
+\textbf{Properties:}
+
+\begin{itemize}
+    \item $f_{X, Y}(x, y) \geq 0 \forall (x, y) \in R_{X, Y}$
+    \item $f_{X, Y}(x, y) = 0 \forall (x, y) \not\in R_{X, Y}$
+    \item $\int\int_{(x, y) \in R_{X, Y}} f_{X, Y}(x, y) dx dy = 1$
+\end{itemize}
+
+*Focus of this module is ranges where $x$ and $y$ do not depend on each other (not the same as independence)
+
+\section*{Marginal probability distribution}
+
+Isolating $X$ or $Y$ from a joint probability distribution (projection of joint distribution to univariate distribution). To find $X$, use $Y$, and vice versa
+
+$$
+P(X = x) = f_X(x) = \sum_{y}f_{X, Y}(x, y)
+$$
+
+or
+
+$$
+f_X(x) = \int_{-\infty}^{\infty} f_{X, Y}(x, y) dy
+$$
+
+Marginal probability distributions are probability functions.
+
+\section*{Conditional distribution}
+
+Distribution of $Y$ given that the random variable $X$ is observed to take the value $x$
+
+Conditional probability function of $Y$ given that $X = x$:
+
+$$
+f_{Y | X} (y | x) = \frac{f_{X, Y}(x, y)}{f_X(x)}
+$$
+
+when given values, it finds $P(Y | X = x)$
+
+Only defined for $x$ such that $f_X(x) > 0$ (same for $y$)
+
+\textbf{$f_{Y | X} (y | x)$ is not a probability function of $x$:} the requirements of probability functions do not need to hold
+
+\textbf{Applications:} you can also use summation for discrete joint random variables
+
+$$
+P(Y \leq y | X = x) = \int_{-\infty}^y f_{Y | X} (y | x) dy
+$$
+
+$$
+E(Y | X = x) = \int_{-\infty}^{\infty} y f_{Y | X} (y | x) dy
+$$
+
+\subsection*{Reading discrete joint probability tables}
+
+\begin{center}
+    \begin{tabular}{|c|c|c|c|c|}
+        \hline
+        x/y & $y_1$ & $y_2$ & $y_3$ & $f_X(x)$ \\
+        \hline
+        $x_1$ & a & b & c & a + b + c \\
+        $x_2$ & d & e & f & d + e + f \\
+        $x_3$ & g & h & i & g + h + i \\
+        \hline
+        $f_Y(y)$ & a + d + g & b + e + h & c + f + i & 1 \\
+        \hline
+    \end{tabular}
+\end{center}
+
+$E(Y | X = x)$ (same steps for $E(X | Y = y)$) (using $x = x_1$):
+
+\begin{enumerate}
+    \item Sum of probability given $X = x_1 = f_X(x_1)$, $a + b + c = K$
+    \item Divide each value in $X = x_1$ by $K$, $a / K$, $b / K$, $c / K$
+    \item Multiply each by the corresponding $Y$ value, $\frac{ay_1}{K}$, $\frac{by_2}{K}$, $\frac{cy_3}{K}$
+    \item Sum the values: $\displaystyle E(Y | X = x_1) = \frac{ay_1 + by_2 + cy_3}{K}$
+\end{enumerate}
+
+$E(X)$ (same steps for $E(Y)$): $x_1 \cdot (a + b + c) + x_2 \cdot (d + e + f) + x_3 \cdot (g + h + i)$
+
+Simplified $E(X)$ (same steps for $E(Y)$): $x_1 \cdot f_X(x_1) + x_2 \cdot f_X(x_2) + x_3 \cdot f_X(x_3)$
+
+\section*{Independent random variables}
+
+$X$ does not decide $Y$ and vice versa
+
+$X$ and $Y$ are independent iff for any $x$ and $y$ (all pairs), 
+
+$$
+f_{X, Y}(x, y) = f_X(x)f_Y(y)
+$$
+
+*Must manually check all combinations
+
+\textbf{Product feature:} necessary condition for independence: $R_{X, Y}$ needs to be a product space
+
+\begin{equation*}
+    \begin{split}
+        & f_{X, Y} (x, y) = f_X(x)f_Y(y) > 0 \\
+        & \Rightarrow R_{X, Y} = \{(x, y) | x \in R_X; y \in R_Y\} = R_X \times R_Y
+    \end{split}
+\end{equation*}
+
+If $R_{X, Y}$ is not a product space, then $X$ and $Y$ are not independent (visually, it's a rectangular space)
+
+\textbf{Properties:}
+
+\begin{itemize}
+    \item if $A \subset \mathbb{R} \land B \subset \mathbb{R}$, the events $X \in A$ and $Y \in B$ are independent events in $S$
+
+    $$
+    P(X \in A; Y \in B) = P(X \in A)P(Y \in B)
+    $$
+
+    $$
+    P(X \leq x; Y \leq y) = P(X \leq x)P(Y \leq y)
+    $$
+
+    \item for arbitrary functions $g_1(\cdot)$ and $g_2(\cdot)$, $g_1(X) \perp g_2(Y)$
+
+    \item $f_X(x) > 0 \Rightarrow f_{Y | X}(y|x) = f_Y(y)$
+    \item $f_Y(y) > 0 \Rightarrow f_{X | Y}(x|y) = f_X(x)$
+\end{itemize}
+
+\subsection*{Checking independence}
+
+Given a joint probability table (for discrete variables), if there are $0$ entries in the table, then $R_{X, Y}$ is not a product space, hence $X \not\perp Y$
+
+More generally, both conditions must hold:
+
+\begin{enumerate}
+    \item $R_{X, Y}$ is positive and is a product space
+    \item for any $(x, y) \in R_{X, Y}$, $f_{X, Y}(x, y) = C \times g_1(x) \times g_2(y)$ (can be decomposed into parts that all do not depend on each other)
+
+    * $g_1(X)$ and $g_2(Y)$ do not need to be probability functions
+\end{enumerate}
+
+\section*{Joint expectation}
+
+$$
+E(g(X, Y)) = \sum_x\sum_y g(x, y) f_{X, Y}(x, y)
+$$
+
+or 
+
+$$
+E(g(X, Y)) = \int_{-\infty}^{\infty}\int_{-\infty}^{\infty} g(x, y) f_{X, Y}(x, y) dy dx
+$$
+
+\section*{Covariance}
+
+\begin{equation*}
+    \begin{split}
+        \text{cov}(X, Y) & = E[(X - E(X))(Y - E(Y))] \\
+        & = \sum_x\sum_y (x - \mu_X)(y - \mu_Y)f_{X, Y}(x, y) \\
+        & = \int_{-\infty}^{\infty}\int_{-\infty}^{\infty} (x - \mu_X)(y - \mu_Y)f_{X, Y}(x, y) dx dy
+    \end{split}
+\end{equation*}
+
+\textbf{Properties:}
+
+\begin{itemize}
+    \item cov$(X, Y) = E(XY) - E(X)E(Y)$
+    \item if $X \perp Y$, cov$(X, Y) = 0$ (but converse is not true)
+    \item $X \perp Y \Rightarrow E(XY) = E(X)E(Y)$
+    \item cov$(aX + b, cY + d) = ac \cdot \text{cov}(X, Y)$
+    \begin{itemize}
+        \item cov$(X, Y) = \text{cov}(Y, X)$
+        \item cov$(X + b, Y) = cov(X, Y)$
+        \item cov$(aX, Y) = a \text{cov}(X, Y)$
+    \end{itemize}
+    \item $V(aX + bY) = a^2 V(X) + b^2 V(Y) + 2 ab \cdot \text{cov}(X, Y)$
+    \begin{itemize}
+        \item $V(aX) = a^2V(X)$
+        \item $V(X + Y) = V(X) + V(Y) + 2 \text{cov}(X, Y)$
+    \end{itemize}
+    \item $V(a + bX) = b^2V(X)$
+\end{itemize}
+
+\section*{Joint variance}
+
+\begin{itemize}
+    \item $X \perp Y \Rightarrow V(X \pm Y) = V(X) + V(Y)$
+    \item $V(X_1 + X_2 + \cdots + X_n) = V(X_1) + V(X_2) + \cdots + V(X_n) + 2 \sum_{j > i}\text{cov}(X_i, X_j)$
+    \item $X_1 \perp X_2 \perp \cdots \perp X_n \Rightarrow V(X_1 \pm X_2 \pm \cdots \pm X_n) = V(X_1) + V(X_2) + \cdots + V(X_n)$
+\end{itemize}
+
+\section*{Distributions}
+
+\end{document}
