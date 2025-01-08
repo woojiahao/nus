@@ -73,6 +73,40 @@ const collection = {
                 'tutorials_pyp_notes.pdf': 'Tutorial & PYP Notes'
             }
         },
+    },
+    'Year 2 Semester 2': {
+        'st2334': {
+            'name': 'Probability and Statistics',
+            'resources': {
+                'st2334_midterms.pdf': 'Midterms Cheatsheet',
+                'st2334_finals.pdf': 'Finals Cheatsheet',
+            }
+        },
+        'cs2109s': {
+            'name': 'Introduction to AI and Machine Learning',
+            'resources': {
+                'cs2109s_midterms.pdf': 'Midterms Cheatsheet'
+            }
+        },
+        'cs3223': {
+            'name': 'Database Systems Implementation',
+            'resources': {
+                'cs3223_midterms.pdf': 'Midterms Cheatsheet',
+                'cs3223_finals.pdf': 'Finals Cheatsheet'
+            }
+        },
+        'cs3230': {
+            'name': 'Design and Analysis of Algorithms',
+            'resources': {
+                'cs3230_midterms.pdf': 'Midterms Cheatsheet',
+                'cs3230_finals.pdf': 'Finals Cheatsheet'
+            }
+        },
+    },
+    'Year 3 Semester 1': {
+        'LOA': {
+            'name': 'Leave of Absence to work at Palantir'
+        }
     }
 }
 
