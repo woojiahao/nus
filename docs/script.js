@@ -110,10 +110,21 @@ const collection = {
   },
   'Year 3 Semester 2': {
     'cs3211': {
-      'name': 'Parallel and Concurrent Programming'
+      'name': 'Parallel and Concurrent Programming',
+      'resources': {
+        'finals.pdf': 'Finals Cheatsheet'
+      }
     },
     'cs4225': {
-      'name': 'Big Data Systems for Data Science'
+      'name': 'Big Data Systems for Data Science',
+      'resources': {
+        'finals.pdf': 'Finals Cheatsheet'
+      }
+    }
+  },
+  'Year 4 and beyond': {
+    '🎓': {
+      'name': 'I have graduated! All the best with your NUS CS journey'
     }
   }
 }
