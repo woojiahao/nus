@@ -22,13 +22,6 @@ const collection = {
         'pe2_cheatsheet.pdf': 'PE2 Cheatsheet',
       }
     },
-    'cs2040s': {
-      'name': 'Data Structures and Algorithms',
-      'resources': {
-        'finals_notes.pdf': 'Final Notes',
-        'finals_cheatsheet.pdf': 'Final Cheatsheet',
-      }
-    },
   },
   'Year 1 Semester 2': {
     'cs2100': {
@@ -47,6 +40,13 @@ const collection = {
     'gea1000': {
       'name': 'Quantitative Reasoning with Data',
       'resources': {
+        'finals_cheatsheet.pdf': 'Final Cheatsheet',
+      }
+    },
+    'cs2040s': {
+      'name': 'Data Structures and Algorithms',
+      'resources': {
+        'finals_notes.pdf': 'Final Notes',
         'finals_cheatsheet.pdf': 'Final Cheatsheet',
       }
     },
